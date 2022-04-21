@@ -33,11 +33,21 @@ def predict(req: PredictRequest):
     # print("request received", req.stockAmount)
     # arr = []
     # arr.append(req.stock)
+    modelFileNameMapping = {
+        'AAPL': 'AAPL_model.h5',
+        'CNQ': 'CNQ_model.h5',
+        'FB': 'FB_model.h5',
+        'GOOG': 'GOOG_model.h5',
+        'JNJ': 'JNJ_model.h5',
+        'MCD': 'MCD_model.h5',
+        '^GSPC': 'SP500_model.h5',
+    }
     input_data = {
         # "investmentMoney": int(req.stockAmount),
         # "riskLevel": int(req.riskLevel),
         "userSelectedStock": req.stock,
-        "daysOfPrediction": 100
+        "daysOfPrediction": 100,
+        "modelFileName": modelFileNameMapping[req.stock]
     }
     
     # print("input created", input_data)

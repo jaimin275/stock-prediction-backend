@@ -39,7 +39,7 @@ TEST_DATA = None
 BETA_VALUES = None
 TIME_STEPS = 100
 
-MODEL = load_model("./models/AAPL_model.h5")
+# MODEL = load_model("./models/AAPL_model.h5")
 
 
 
@@ -190,7 +190,10 @@ def get_stocks_future_data(stock_code, predicted_data):
 
 
 def predictModel(inp):
-    global TEST_DATA, TIME_STEPS, TEST_DF, MODEL, SCALER, SP_STOCK_CODE
+    global TEST_DATA, TIME_STEPS, TEST_DF, SCALER, SP_STOCK_CODE
+
+    MODEL = load_model("./models/" + inp['modelFileName'])
+
     df = TEST_DF
     model = MODEL
     scaler = SCALER
