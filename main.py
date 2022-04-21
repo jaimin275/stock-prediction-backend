@@ -3,7 +3,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from controller.prediction import predictModel
-from models.schemas import BaseResponse, PredictRequest
+# from models.schemas import BaseResponse, PredictRequest
 import numpy as np
 # from controller.auth import AuthHandler
 
@@ -23,7 +23,7 @@ app.add_middleware(
 def hello():
     return 'Welcome to the Stock Prediction API'
 
-
+from models.schemas import BaseResponse, PredictRequest
 @app.post("/predict")
 def predict(req: PredictRequest):
     res = BaseResponse()
